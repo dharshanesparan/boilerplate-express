@@ -5,9 +5,9 @@ console.log("Hello World");
 
 
 app.get('/', (req, res) => {
-    res.send('Hello Express');
+    const filePath = path.join(__dirname, 'views', 'index.html');
+    res.sendFile(filePath);
   });
-
 
 
 
