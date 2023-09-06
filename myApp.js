@@ -34,22 +34,3 @@ app.get(function(req, res, next) {
     res.type('txt').send(data.toString());
   });
 });
-var express = require('express');
-var app = express();
-
-console.log("Hello World");
-
-absolutePath = __dirname + "/public";
-
-app.use("/public", express.static(absolutePath));
-
-app.get("/", function (req, res) {
-  absolutePath = __dirname + "/views/index.html";
-  res.sendFile(absolutePath);
-});
-
-app.get("/json", (req, res) => {
-  res.json({
-    "message":"Hello json"
-  });
-});
