@@ -26,4 +26,11 @@ app.get("/json",function(req,res){
 app.get("/", (request, response) => {
   let absolutePath = __dirname + "/views/index.html";
   response.sendFile(absolutePath);
-})
+});
+app.get(function(req, res, next) {
+  console.log('Hello json');
+  fs.readFile(__dirname + '/package.json', function(err, data) {
+    if(err) return next(err);
+    res.type('txt').send(data.toString());
+  });
+});
