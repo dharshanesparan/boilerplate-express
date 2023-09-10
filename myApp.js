@@ -33,4 +33,15 @@ app.get(function(req, res, next) {
     if(err) return next(err);
     res.type('txt').send(data.toString());
   });
+
+  const mySecret = process.env['MESSAGE_STYLE']
+  response= {"message": "Hello json"}
+  app.get("/json", function(req, res){
+    if (mySecret === "uppercase"){
+       res.json({message: "Hello json".toUpperCase()});
+    }
+    else
+      res.json({message: "Hello json"} );
+  });
+
 });
