@@ -1,4 +1,4 @@
-//dharshan
+//dh
 const { json } = require('body-parser');
 let express = require('express');
 const path = require('path');
@@ -35,15 +35,15 @@ app.get(function(req, res, next) {
     res.type('txt').send(data.toString());
   });
 
-  app.get("/json" , (response,response) => {
+  app.get("/json" , (req,res) => {
     if(process.env.MESSAGE_STYLE == "uppercase")
     
     {
-       res.json({"message": "HELLO JSON"})
+       res.json({"message": "Hello json".toUpperCase()});
     }
     else
     {
-    response.json("message")
+      res.json({"message": "Hello json"});
     }
    
   });
