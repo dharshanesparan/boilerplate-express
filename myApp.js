@@ -4,7 +4,8 @@ let express = require('express');
 const path = require('path');
 require('dotenv').config()
 //app.get (express.static(__dirname+"public"))
-let app = express();
+let app = express()
+ console.log('${process.env.MESSAGE_STYLE} ${process.env.MESSAGE_STYLE} ')
 //
 console.log("Hello World");
 app.get('/',(req,res)=>{res.sendFile(__dirname+'views.index.html');
@@ -34,14 +35,17 @@ app.get(function(req, res, next) {
     res.type('txt').send(data.toString());
   });
 
-  const mySecret = process.env['MESSAGE_STYLE']
-  response= {"message": "Hello json"}
-  app.get("/json", function(req, res){
-    if (mySecret === "uppercase"){
-       res.json({message: "Hello json".toUpperCase()});
+  app.get("/json" , (req,res) => {
+    if(process.env.MESSAGE_STYLE == "uppercase")
+    
+    {
+       res.json({"message": "Hello json".toUpperCase()});
     }
     else
-      res.json({message: "Hello json"} );
+    {
+      res.json({"message": "Hello json"});
+    }
+   
   });
 
 });
