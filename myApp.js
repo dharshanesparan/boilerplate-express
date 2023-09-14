@@ -1,4 +1,16 @@
 var express = require('express');
 var app = express ();
-console.log("Hello World")
-module.exports = app;
+
+//console.log("Hello World")
+//2
+
+app.get("/" ,(req, res) => {
+  res.send("Hello Express")
+  }) 
+  app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/views/index.html");
+  })
+
+
+module.exports = app; 
+

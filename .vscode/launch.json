@@ -12,11 +12,7 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
             "file": "${workspaceFolder}/index.html",
-            "env": {
-    "messages1":"hello",
-    "messages2":"world"
-
-            }
+ 
         }
     ]
 }
